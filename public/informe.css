@@ -1,0 +1,429 @@
+/* ==========================================================
+   SISFIS_WILFREDO
+   FORMATO OFICIAL DEL INFORME DE SUPERVISIÓN
+   (réplica del documento modelo: fuente Poppins, A4,
+   encabezado con logo, tabla azul #0070C0, firmas)
+   ========================================================== */
+
+/* ---------- 1. Distribución del editor ---------- */
+
+.contenedor-ancho {
+ max-width: 1500px;
+}
+
+.editor {
+ display: grid;
+ grid-template-columns: minmax(380px, 1fr) minmax(0, 1.25fr);
+ gap: 24px;
+ align-items: start;
+}
+
+.editor-vista {
+ position: sticky;
+ top: 12px;
+}
+
+.vista-barra {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ gap: 12px;
+ flex-wrap: wrap;
+}
+
+.vista-botones { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.vista-scroll {
+ max-height: 82vh;
+ overflow: auto;
+ background: #e5e7eb;
+ padding: 18px;
+ border-radius: 10px;
+}
+
+@media (max-width: 1100px) {
+ .editor { grid-template-columns: 1fr; }
+ .editor-vista { position: static; }
+ .vista-scroll { max-height: none; }
+}
+
+/* ---------- 2. Complementos del formulario ---------- */
+
+.form-grid {
+ display: grid;
+ grid-template-columns: repeat(2, minmax(0, 1fr));
+ gap: 4px 16px;
+}
+
+@media (max-width: 600px) {
+ .form-grid { grid-template-columns: 1fr; }
+}
+
+.ayuda {
+ font-size: 13px;
+ color: var(--texto-secundario, #64748b);
+ margin: 4px 0 8px;
+}
+
+.h3-sub { font-size: 1rem; }
+
+.check { display: flex; align-items: center; gap: 6px; }
+
+.acciones { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.acciones-top { margin: 8px 0 16px; align-items: center; }
+
+.btn-sm { padding: 7px 12px; font-size: 13px; }
+
+.btn-guardar { background: var(--azul-principal, #1769aa); color: #fff; }
+
+.badge {
+ background: #fef3c7;
+ color: #92400e;
+ padding: 6px 10px;
+ border-radius: 999px;
+ font-size: 13px;
+ font-weight: 600;
+}
+
+.hechos { display: grid; gap: 12px; margin-bottom: 10px; }
+
+.hecho {
+ border: 1px solid var(--borde, #dbe3ed);
+ border-left: 4px solid #0070c0;
+ border-radius: 8px;
+ padding: 12px;
+ background: #f8fafc;
+}
+
+.hecho-cab {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 6px;
+}
+
+.hecho textarea { min-height: 60px; }
+
+.imagen-acciones { margin: 6px 0 10px; }
+
+/* Lista de informes registrados */
+.item-informe {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ gap: 12px;
+ flex-wrap: wrap;
+ padding: 10px 0;
+ border-bottom: 1px solid var(--borde, #dbe3ed);
+}
+
+.item-botones { display: flex; gap: 8px; }
+
+/* ---------- 3. Hoja del informe (A4) ---------- */
+
+.hoja {
+ font-family: 'Poppins', Arial, sans-serif;
+ font-size: 9.5pt;
+ line-height: 1.55;
+ color: #000;
+ background: #fff;
+ width: 210mm;
+ max-width: 100%;
+ margin: 0 auto;
+ padding: 10mm 20mm 15mm 25mm;
+ box-sizing: border-box;
+ box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+}
+
+.hoja * { font-family: inherit; }
+
+/* La hoja usa una tabla para repetir el encabezado en cada página
+   impresa; se anulan los estilos generales de tablas del sistema */
+.hoja table.hoja-marco,
+.hoja table.hoja-marco > thead > tr > td,
+.hoja table.hoja-marco > tbody > tr > td {
+ border: none;
+ padding: 0;
+ background: none;
+ width: 100%;
+ border-collapse: collapse;
+ box-shadow: none;
+}
+
+.hoja table.hoja-marco { table-layout: fixed; }
+.hoja table.hoja-marco > thead { background: none; color: #000; display: table-header-group; }
+.hoja table.hoja-marco tr:hover,
+.hoja table.hoja-marco tr:nth-child(even) { background: none; }
+
+.hoja-cabecera {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ border-bottom: 1px solid #000;
+ padding-bottom: 6px;
+ margin-bottom: 14px;
+}
+
+.hoja-cabecera img { height: 62px; width: auto; }
+
+.hoja-cabecera span {
+ font-weight: 700;
+ font-size: 8.5pt;
+ text-align: right;
+}
+
+/* Bloque de título: INFORME DE SUPERVISIÓN | Otros destinatarios */
+.inf-titulo {
+ display: grid;
+ grid-template-columns: 1fr 130px;
+ margin-bottom: 14px;
+}
+
+.inf-titulo-izq {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ font-size: 11pt;
+ padding: 8px 0;
+}
+
+.inf-titulo-der {
+ border-left: 1px solid #000;
+ border-bottom: 1px solid #000;
+ grid-row: span 2;
+ font-size: 7.5pt;
+ padding: 4px 6px;
+}
+
+.inf-titulo-fecha {
+ border-bottom: 1px solid #000;
+ padding: 2px 0;
+}
+
+.inf-exp { margin-left: 6px; }
+
+/* A, De, Asunto, Referencia */
+.inf-datos { margin-bottom: 8px; }
+
+.inf-fila {
+ display: grid;
+ grid-template-columns: 76px 14px 1fr;
+ margin: 4px 0;
+}
+
+.inf-de { margin-top: 10px; }
+
+.inf-ref {
+ border-bottom: 1px solid #000;
+ padding-bottom: 3px;
+ margin-top: 10px;
+}
+
+/* Títulos de sección: 1. OBJETIVO: (negrita subrayada) */
+.hoja h4.inf-sec,
+.hoja h5.inf-sub {
+ font-size: 9.5pt;
+ font-weight: 700;
+ margin: 16px 0 6px;
+ color: #000;
+ display: flex;
+ gap: 8px;
+ break-after: avoid;
+ page-break-after: avoid;
+}
+
+.hoja h5.inf-sub { margin-left: 18px; }
+
+.inf-num {
+ font-weight: 700;
+ min-width: 22px;
+ flex-shrink: 0;
+}
+
+.inf-p {
+ text-align: justify;
+ margin: 4px 0 6px 30px;
+}
+
+.inf-p-sub { margin-left: 48px; }
+
+/* Listas numeradas 2.1., 3.1., 6.1. ... */
+.hoja ol.inf-lista {
+ list-style: none;
+ margin: 4px 0 6px 30px;
+ padding: 0;
+}
+
+.hoja ol.inf-lista li {
+ display: flex;
+ gap: 10px;
+ text-align: justify;
+ margin-bottom: 6px;
+}
+
+.hoja ol.inf-lista li .inf-num { min-width: 30px; }
+.hoja ol.inf-lista-3 { margin-left: 48px; }
+.hoja ol.inf-lista-3 li .inf-num { min-width: 42px; }
+.hoja ol.inf-romano li .inf-num { font-weight: 400; min-width: 34px; text-align: right; }
+.hoja ol.inf-negrita li div { font-weight: 700; }
+
+/* Imagen N.º 01 con su leyenda */
+.inf-cap {
+ text-align: center;
+ margin: 12px 0 4px;
+ break-after: avoid;
+ page-break-after: avoid;
+}
+
+.inf-et { white-space: nowrap; }
+
+.inf-figura {
+ border: 1px solid #000;
+ margin: 0 0 10px 30px;
+ break-inside: avoid;
+}
+
+.inf-figura-img { padding: 4px; text-align: center; }
+.inf-figura-img img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+
+.inf-sin-imagen {
+ padding: 30px 10px;
+ color: #64748b;
+ background: #f1f5f9;
+ text-align: center;
+}
+
+.inf-figura-ley {
+ border-top: 1px solid #000;
+ padding: 3px 6px;
+ font-size: 8pt;
+}
+
+/* Tabla N.º 01 de hechos constatados */
+.hoja table.inf-tabla {
+ width: 100%;
+ table-layout: fixed;
+ word-wrap: break-word;
+ border-collapse: collapse;
+ font-size: 8pt;
+ margin: 4px 0;
+ box-shadow: none;
+ border-radius: 0;
+}
+
+.hoja table.inf-tabla th {
+ background: #0070c0;
+ color: #fff;
+ font-weight: 700;
+ text-align: center;
+ vertical-align: middle;
+ border: 1px solid #000;
+ padding: 4px;
+ text-transform: none;
+ letter-spacing: 0;
+ white-space: normal;
+}
+
+.hoja table.inf-tabla td {
+ border: 1px solid #000;
+ padding: 4px;
+ vertical-align: top;
+ background: #fff;
+}
+
+.hoja table.inf-tabla tr:hover td,
+.hoja table.inf-tabla tr:nth-child(even) td { background: #fff; }
+
+.hoja table.inf-tabla td.c { text-align: center; }
+.hoja table.inf-tabla td.j { text-align: justify; }
+.hoja table.inf-tabla td.rojo { color: #ee0000; }
+
+.inf-fuente { font-size: 8pt; margin: 2px 0 10px 30px; }
+
+/* Firmas */
+.inf-atte { margin-top: 20px; }
+
+.inf-firmas {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 20px;
+ margin-top: 50px;
+ text-align: center;
+ break-inside: avoid;
+}
+
+.inf-firma { display: flex; flex-direction: column; font-size: 8.5pt; line-height: 1.4; }
+
+.inf-linea {
+ border-top: 1px solid #000;
+ width: 70%;
+ margin: 0 auto 4px;
+}
+
+/* Nota al pie (PAS) */
+.inf-nota {
+ margin-top: 40px;
+ border-top: 1px solid #000;
+ width: 100%;
+ padding-top: 4px;
+ font-size: 7pt;
+ text-align: justify;
+}
+
+.inf-nota::before {
+ content: '';
+ display: block;
+ width: 35%;
+}
+
+/* Datos que aún faltan llenar */
+.falta {
+ background: #fff3a3;
+ color: #7a5b00;
+ font-style: italic;
+ padding: 0 3px;
+ border-radius: 2px;
+}
+
+/* ---------- 4. Impresión / PDF: solo la hoja ---------- */
+
+@page {
+ size: A4;
+ margin: 10mm 0 12mm 0;
+}
+
+@media print {
+ body { background: #fff !important; margin: 0 !important; }
+
+ /* Se oculta todo el sistema y solo queda la hoja del informe */
+ header, nav, footer,
+ .contenedor > .card:not(.editor),
+ #informes, .editor-form,
+ .vista-barra, .editor-vista > .ayuda {
+  display: none !important;
+ }
+
+ main, .contenedor, .editor, .editor-vista, .vista-scroll {
+  display: block !important;
+  position: static !important;
+  max-width: none !important;
+  max-height: none !important;
+  overflow: visible !important;
+  background: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+ }
+
+ .hoja {
+  box-shadow: none;
+  width: 100%;
+  padding: 0 20mm 0 25mm;
+ }
+
+ .falta { background: none; color: #000; }
+
+ .inf-figura, .inf-firmas, .hoja table.inf-tabla tr { break-inside: avoid; }
+}

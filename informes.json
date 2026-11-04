@@ -1,0 +1,28 @@
+[
+  {
+    "expediente": "2558957825",
+    "empresa": "ing de software con ia",
+    "placa": "<ee454",
+    "supervisor": "555",
+    "antecedentes": "yjjjj",
+    "analisis": "jjj",
+    "descargos": "",
+    "conclusiones": "yy",
+    "recomendaciones": "yy",
+    "tieneDescargo": false,
+    "id": "1793748653717"
+  },
+  {
+    "expediente": "202600012457",
+    "empresa": "Ingeniería de Software con Inteligencia Artificial",
+    "placa": "BCP372",
+    "supervisor": "Wilfredo Alcedo Santiago",
+    "antecedentes": "- 2.1 Con fecha 03 de noviembre de 2026, se realizó la inspección del sistema de información SISFIS en desarrollo.\n- 2.2 Con fecha 03 de noviembre de 2026, se elabora el presente informe de supervisión como resultado de la verificación efectuada.",
+    "analisis": "- 3.1Durante la visita de fiscalización, se constató que los estudiantes mantienen una actitud proactiva en el desarrollo de los componentes **Frontend** y **Backend** de la aplicación.\n- 3.2 Asimismo, se verificó que el equipo presenta avances en el diseño de la interfaz; sin embargo, aún no demuestra dominio pleno sobre la lógica y estructura del **Backend**.\n- **3.3** El desarrollo se viene ejecutando de manera eficiente en el aula, siguiendo la metodología establecida para el modelo de proyecto formativo.",
+    "descargos": "",
+    "conclusiones": "**4.1** Se concluye que el desarrollo del software se encuentra en marcha, con avances probados en su implementación.",
+    "recomendaciones": "**5.1** Se exhorta al equipo de desarrollo a mantener una actitud proactiva, profundizar los conocimientos sobre programación del lado del servidor y reforzar los conocimientos necesarios para el correcto funcionamiento integral del sistema.",
+    "tieneDescargo": false,
+    "id": "1793748900895"
+  }
+]
